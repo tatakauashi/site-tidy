@@ -66,3 +66,7 @@ node --test tests/rules.test.cjs
 ```
 
 Chromeで読み込んだ後、対象URLと非対象URL、遅延追加される要素、ルールON／OFF、再読み込み後の再適用を確認してください。
+
+## ライセンス
+
+[MIT License](LICENSE) — Copyright (c) 2026 SATOH Kiyoshi
