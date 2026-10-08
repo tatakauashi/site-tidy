@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Site Tidy 設定</title><link rel="stylesheet" href="ui.css"></head>
+<body><main>
+<header><p class="eyebrow">SITE TIDY</p><h1>見たいものだけ、残す。</h1><p>サイトごとに、不要な要素をCSSで隠します。</p></header>
+<section><h2>非表示ルール</h2><div id="rules"></div><button id="add" type="button">＋ ルールを追加</button></section>
+<section><h2 id="editor-title">ルールを追加</h2><form id="editor">
+<label>ルール名<input id="name" required maxlength="100" placeholder="広告枠を隠す"></label>
+<label>対象URL<input id="pattern" required maxlength="2048" placeholder="*.example.com"></label>
+<p class="hint">* は0文字以上、ホスト名の ? は任意の1文字。example?*.com は example.com を含みません。*.example.com は親ドメインも含みます。パス省略は全ページ。クエリと # は判定しません。</p>
+<label>非表示にするCSSセレクター<textarea id="selectors" required maxlength="20000" rows="5" placeholder=".advertisement&#10;#ad-area"></textarea></label>
+<p class="hint">1行に1つ。CSS宣言やJavaScriptではなく、セレクターだけを入力します。</p>
+<label class="check"><input id="enabled" type="checkbox" checked>このルールを有効にする</label>
+<div class="actions"><button type="submit">保存</button><button id="cancel" type="button" class="secondary">入力をリセット</button></div>
+</form></section>
+<section><h2>アクセスを許可したサイト</h2><p>URL条件とは別に、動作させるサイトへの許可が必要です。対象サイトで拡張機能のアイコンをクリックするか、ここから許可してください。</p>
+<div class="actions"><input id="permission-host" placeholder="example.com または *.example.com" aria-label="許可するホスト名"><button id="grant" type="button">サイトを許可</button></div>
+<p class="hint">example*.com は権限として指定できません。実際に利用する各サイトを個別に許可してください。権限変更後は対象ページを再読み込みしてください。</p><div id="permissions"></div></section>
+<p id="status" role="status" aria-live="polite"></p>
+</main><script src="matcher.js"></script><script src="options.js"></script></body></html>
